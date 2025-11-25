@@ -6,8 +6,14 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       server: {
-        port: 3000,
+        port: 3002,
         host: '0.0.0.0',
+        cors: true,
+        strictPort: true,
+        // Allow all origins for development
+        origin: '*',
+        // Add detailed logging
+        logLevel: 'info',
       },
       preview: {
         port: parseInt(process.env.PORT || '4173'),
